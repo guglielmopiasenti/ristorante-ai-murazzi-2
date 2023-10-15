@@ -18,7 +18,7 @@
     </div>
 
     <div class="content">
-        <div class="container">
+        <div class="container mx-auto">
             <div class="p-5">
 
                 <form class="my-5" method="POST" enctype="multipart/form-data" novalidate
