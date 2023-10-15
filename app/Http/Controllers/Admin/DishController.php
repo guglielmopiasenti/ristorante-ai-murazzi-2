@@ -77,7 +77,7 @@ class DishController extends Controller
      */
     public function show(Dish $dish)
     {
-        return redirect()->route('admin.dishes.show', ['dish' => $dish->id]);
+        return view('admin.dishes.show', compact('dish'));
     }
 
     /**
@@ -85,7 +85,7 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
-        return view('admin.dishes.edit', compact('dish', 'categories'));
+        return view('admin.dishes.edit', compact('dish'));
     }
 
     /**
