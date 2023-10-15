@@ -25,7 +25,7 @@ Route::get('/', function () {
             return abort(404);
         }
 
-        return view('welcome', compact('dish'));
+        return view('welcome');
     } else {
         return view('welcome');
     }
