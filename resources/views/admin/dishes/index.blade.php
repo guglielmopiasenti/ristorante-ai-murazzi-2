@@ -26,15 +26,15 @@
     <div class="container mx-auto text-white">
         <h2 class="py-5 text-4xl">Elenco piatti</h2>
         <div class="py-5 flex flex-wrap gap-3">
-            <a class=" flex mx-1 items-center justify-center rounded-full border border-transparent bg-indigo-600 px-2 py-2 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            <a class=" flex mx-1 items-center justify-center rounded-full border border-transparent bg-indigo-600 px-3 py-2 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 href="{{ route('admin.dishes.create') }}">Crea un nuovo piatto</a>
-            <a class="flex mx-1 items-center justify-center rounded-full border border-transparent bg-red-600 px-2 py-2 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-                href="{{ route('admin.dishes.trash') }}">Vai al cestino ({{ $trash_count }} elementi)</a>
+            <a class="flex mx-1 items-center justify-center rounded-full border border-transparent bg-red-600 px-3 py-2 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                href="{{ route('admin.dishes.trash') }}">Vai al cestino <span class="text-sm">({{ $trash_count }})</span></a>
         </div>
 
         <div class="overflow-x-auto">
             <table
-                class="mx-auto p-5 table-auto border border-gray-600 rounded-lg border-separate border-spacing-3 mb-4">
+                class="w-full mx-auto p-5 table-auto border border-gray-600 rounded-lg border-separate border-spacing-3 my-5 text-left">
                 <thead>
                     <tr>
                         <th scope="col">Id</th>
@@ -67,18 +67,17 @@
                             </td>
                             <td>
                                 <div class="grid grid-cols-3 items-center gap-2">
-                                    <a class="flex mx-1 items-center justify-center rounded-full border border-transparent bg-sky-600 px-2 py-2 text-base font-medium text-white hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+                                    <a class="flex mx-1 items-center justify-center rounded-full border border-transparent bg-blue-600 px-3 py-2 text-sm text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                                         href="{{ route('admin.dishes.show', $dish->id) }}"><i
                                             class="fas fa-eye me-2"></i><span class="hidden lg:inline">Dettagli</span></a>
-                                    <a class="flex mx-1 items-center justify-center rounded-full border border-transparent bg-indigo-600 px-2 py-2 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                    <a class="flex mx-1 items-center justify-center rounded-full border border-transparent bg-indigo-600 px-2 py-2 text-sm text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                                         href="{{ route('admin.dishes.edit', $dish->id) }}"><i
                                             class="fas fa-pen me-2"></i><span class="hidden lg:inline">Modifica</span></a>
                                     <button type="button"
-                                        class=" flex mx-1 items-center justify-center rounded-full border border-transparent bg-red-600 px-2 py-2 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                        class=" flex mx-1 items-center justify-center rounded-full border border-transparent bg-red-600 px-2 py-2 text-sm text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                                         data-toggle="modal" data-target="#deleteModal" data-route="plates"
                                         data-id="{{ $dish->id }}">
-                                        <i class="fa-solid fa-trash"></i>
-                                        <span class="hidden lg:inline"> Elimina</span>
+                                        <span class="hidden lg:inline"><i class="fa-solid fa-trash"></i> Elimina</span>
                                     </button>
                                 </div>
                             </td>
