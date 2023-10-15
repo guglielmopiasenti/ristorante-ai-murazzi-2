@@ -24,65 +24,74 @@
         </div>
     </div>
     <div class="container mx-auto text-white">
-      <h2 class="py-5 text-2xl">Elenco piatti</h2>
-      <div class="py-5 flex flex-wrap gap-3">
-          <a class="button-main-db my-3 text-center" href="{{ route('admin.dishes.create') }}">Crea un nuovo piatto</a>
-          <a class="button-secondary-db my-3 text-center" href="{{ route('admin.dishes.trash') }}">Vai al cestino ({{ $trash_count }} elementi)</a>
-      </div>
-      <div class="restaurant-card-dark p-5">
-          <div class="overflow-x-auto">
-              <table class="w-full table-auto">
-                  <thead>
-                      <tr>
-                          <th scope="col">Id</th>
-                          <th scope="col">Nome</th>
-                          <th scope="col">Prezzo</th>
-                          <th scope="col">Ha immagine?</th>
-                          <th scope="col">È visibile?</th>
-                          <th scope="col" class="text-center">Azioni</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      @forelse ($dishes as $dish)
-                          <tr>
-                              <td>{{ $dish->id }}</td>
-                              <td>{{ $dish->name }}</td>
-                              <td>{{ $dish->price }}€</td>
-                              <td>
-                                  @if ($dish->image != null && $dish->image != 'placeholder.jpg')
-                                      Sì
-                                  @else
-                                      No
-                                  @endif
-                              </td>
-                              <td>
-                                  @if ($dish->is_visible)
-                                      <i class="fas fa-eye"></i>
-                                  @else
-                                      <i class="fas fa-eye-slash"></i>
-                                  @endif
-                              </td>
-                              <td>
-                                  <div class="flex items-center ">
-                                      <a class="flex mx-1 items-center justify-center rounded-md border border-transparent bg-yellow-500 px-2 py-2 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" href="{{ route('admin.dishes.show', $dish->id) }}"><i class="fas fa-eye me-2"></i><span class="hidden lg:inline">Dettagli</span></a>
-                                      <a class="flex mx-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-2 py-2 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" href="{{ route('admin.dishes.edit', $dish->id) }}"><i class="fas fa-pen me-2"></i><span class="hidden lg:inline">Modifica</span></a>
-                                      <button type="button" class=" flex mx-1 items-center justify-center rounded-md border border-transparent bg-red-600 px-2 py-2 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" data-toggle="modal" data-target="#deleteModal" data-route="plates" data-id="{{ $dish->id }}">
+        <h2 class="py-5 text-4xl">Elenco piatti</h2>
+        <div class="py-5 flex flex-wrap gap-3">
+            <a class=" flex mx-1 items-center justify-center rounded-full border border-transparent bg-indigo-600 px-2 py-2 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                href="{{ route('admin.dishes.create') }}">Crea un nuovo piatto</a>
+            <a class="flex mx-1 items-center justify-center rounded-full border border-transparent bg-red-600 px-2 py-2 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                href="{{ route('admin.dishes.trash') }}">Vai al cestino ({{ $trash_count }} elementi)</a>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table
+                class="mx-auto p-5 table-auto border border-gray-600 rounded-lg border-separate border-spacing-3 mb-4">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Prezzo</th>
+                        <th scope="col">Ha immagine?</th>
+                        <th scope="col">È visibile?</th>
+                        <th scope="col" class="text-center">Azioni</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($dishes as $dish)
+                        <tr>
+                            <td>{{ $dish->id }}</td>
+                            <td>{{ $dish->name }}</td>
+                            <td>{{ $dish->price }}€</td>
+                            <td>
+                                @if ($dish->image != null && $dish->image != 'placeholder.jpg')
+                                    Sì
+                                @else
+                                    No
+                                @endif
+                            </td>
+                            <td>
+                                @if ($dish->is_visible)
+                                    <i class="fas fa-eye"></i>
+                                @else
+                                    <i class="fas fa-eye-slash"></i>
+                                @endif
+                            </td>
+                            <td>
+                                <div class="grid grid-cols-3 items-center gap-2">
+                                    <a class="flex mx-1 items-center justify-center rounded-full border border-transparent bg-sky-600 px-2 py-2 text-base font-medium text-white hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+                                        href="{{ route('admin.dishes.show', $dish->id) }}"><i
+                                            class="fas fa-eye me-2"></i><span class="hidden lg:inline">Dettagli</span></a>
+                                    <a class="flex mx-1 items-center justify-center rounded-full border border-transparent bg-indigo-600 px-2 py-2 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                        href="{{ route('admin.dishes.edit', $dish->id) }}"><i
+                                            class="fas fa-pen me-2"></i><span class="hidden lg:inline">Modifica</span></a>
+                                    <button type="button"
+                                        class=" flex mx-1 items-center justify-center rounded-full border border-transparent bg-red-600 px-2 py-2 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                        data-toggle="modal" data-target="#deleteModal" data-route="plates"
+                                        data-id="{{ $dish->id }}">
                                         <i class="fa-solid fa-trash"></i>
-                                        <span class="hidden lg:inline">Elimina</span>
+                                        <span class="hidden lg:inline"> Elimina</span>
                                     </button>
-                                  </div>
-                              </td>
-                          </tr>
-                      @empty
-                          <td colspan="8">
-                              <h3 class="font-bold text-red-500 text-center">Nessun piatto</h3>
-                          </td>
-                      @endforelse
-                  </tbody>
-              </table>
-          </div>
-      </div>
-  </div>
-  
-  
+                                </div>
+                            </td>
+                        </tr>
+                    @empty
+                        <td colspan="8">
+                            <h3 class="font-bold text-red-500 text-center">Nessun piatto</h3>
+                        </td>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
 @endsection
