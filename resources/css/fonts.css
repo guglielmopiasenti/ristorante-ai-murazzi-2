@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Edmund';
+  src: local('Edmund Texture'), local('Edmund-Texture'),
+      url('/public/fonts/Edmund-Texture.woff2') format('woff2'),
+      url('/public/fonts/Edmund-Texture.woff') format('woff'),
+      url('/public/fonts/Edmund_Texture.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font-edmund {
+  font-family: "Edmund", sans-serif;
+  font-size: 60px;
+}
