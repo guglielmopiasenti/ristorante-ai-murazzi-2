@@ -46,4 +46,5 @@ if (auth()->check()) {
             </main>
         </div>
     </body>
+    @yield('scripts')
 </html>
