@@ -40,11 +40,11 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth'])->group(function ()
     Route::get('/', [AdminHomeController::class, 'index'])->name('home');
 
     // routes for dishes
-    Route::resource('/dishes', DishController::class);
     Route::get('/dishes/trash', [DishController::class, 'trash'])->name('dishes.trash');
     Route::delete('/dishes/trash/{id}/drop', [DishController::class, 'drop'])->name('dishes.drop');
     Route::delete('/dishes/trash/drop', [DishController::class, 'dropAll'])->name('dishes.dropAll');
     Route::patch('/dishes/{id}/restore', [DishController::class, 'restore'])->name('dishes.restore');
+    Route::resource('/dishes', DishController::class);
 });
 
 Route::middleware('auth')->group(function () {
