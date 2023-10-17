@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'Dish Trash')
+@section('title', 'Cestino')
 
 @section('content')
 
     <div class="container">
-        <h1 class="text-center mt-5">Dishes Trash</h1>
+        <h1 class="text-center mt-5">Cestino</h1>
         <ul class="list-none">
             @forelse ($dishes as $dish)
                 <li class="my-5">
