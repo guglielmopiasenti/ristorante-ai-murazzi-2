@@ -38,8 +38,8 @@
                     </div>
                 </div>
             </div>
-            <div>
-              <img class="aspect-square object-cover rounded mb-3" src="{{ asset('storage/' . $dish->image) }}"
+            <div class="w-96 justify-self-end">
+              <img class=" aspect-square object-cover rounded mb-3" src="{{ asset('storage/' . $dish->image) }}"
                   alt="{{ $dish->name }}">
           </div>
         </div>
