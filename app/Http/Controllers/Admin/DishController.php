@@ -59,7 +59,7 @@ class DishController extends Controller
         $data = $request->all();
 
         if (array_key_exists('image', $data)) {
-            $image_url = Storage::put('dish_images', $data['image']);
+            $image_url = Storage::disk('public')->put('plate_images', $data['image']);
             $data['image'] = $image_url;
         } else {
             $data['image'] = 'placeholder.jpg';
@@ -117,7 +117,7 @@ class DishController extends Controller
         $currentImage = $request->input('current_image');
 
         if (array_key_exists('image', $data)) {
-            $image_url = Storage::put('dish_images', $data['image']);
+            $image_url = Storage::disk('public')->put('plate_images', $data['image']);
             $data['image'] = $image_url;
         } else {
             $data['image'] = $currentImage;
