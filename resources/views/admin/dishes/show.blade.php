@@ -28,13 +28,14 @@
                             class="bg-blue-600 text-white py-2 px-4 rounded-full mr-4">
                             <i class="fa-solid fa-pen"></i> Modifica
                         </a>
-                        <form action="{{ route('admin.dishes.destroy', $dish) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="bg-red-600 text-white py-2 px-4 rounded-full">
-                                <i class="fas fa-trash mr-2"></i>Elimina
+                        <div x-data="{ open: false, dishId: null, route: 'dishes' }" class="justify-self-start">
+                            <button @click="open = true, dishId = {{ $dish->id }}" type="button"
+                                class="rounded-full border border-transparent bg-red-600 px-4 py-3 text-base text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                                <i class="fa-solid fa-trash me-2"></i><span
+                                    class="hidden lg:inline">Elimina</span>
                             </button>
-                        </form>
+                            @include('includes.delete-modal')
+                        </div>
                     </div>
                 </div>
             </div>
