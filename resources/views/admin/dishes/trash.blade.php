@@ -4,52 +4,44 @@
 
 @section('content')
 
-    <div class="container">
-        <h1 class="text-center mt-5">Cestino</h1>
-        <ul class="list-none">
-            @forelse ($dishes as $dish)
-                <li class="my-5">
-                    <div class="restaurant-card p-5">
-                        <div class="card-header rounded border-0 mb-4 flex justify-between items-center">
-                            <h2 class="m-0 flex items-center">
-                                {{ $dish->name }}
-                            </h2>
-                            <div class="h-1 mb-5"></div>
-                        </div>
-                        <div class="card-body">
-                            <p class="">
-                                {{ $dish->description }}
-                            </p>
-                        </div>
-                        <div class="d-md:hidden d-lg:hidden">
-                            Created: {{ $dish->created_at }} <br>
-                            Last edit: {{ $dish->updated_at }} <br>
-                            Deleted: {{ $dish->deleted_at }}
-                        </div>
-                        <div class="card-footer flex justify-between justify-items-center border-0 bg-gray-200 mt-3">
-                            <div class="buttons">
-                                <button class="button-main-db restore-button" data-bs-toggle="modal"
-                                    data-bs-target="#restoreModal" data-route="dishes" data-id="{{ $dish->id }}">Restore
-                                    dish</button>
+    <div class="container mx-auto py-24">
+        <h1 class="text-center mt-5 mb-5 text-7xl text-white font-bold">Cestino</h1>
+
+        @forelse ($dishes as $dish)
+                <div class="mx-auto max-w-7xl py-10 sm:px-6 lg:px-8">
+                    <div class="relative isolate overflow-hidden bg-gray-950 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0 grid grid-cols-2">
+                        <svg viewBox="0 0 1024 1024" class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0" aria-hidden="true">
+                            <circle cx="512" cy="512" r="512" fill="url(#759c1415-0410-454c-8f7c-9a820de03641)" fill-opacity="0.7" />
+                            <defs>
+                                <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
+                                    <stop stop-color="#7775D6" />
+                                    <stop offset="1" stop-color="#E935C1" />
+                                </radialGradient>
+                            </defs>
+                        </svg>
+                        <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+                            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">{{ $dish->name }}</h2>
+                            <p class="mt-6 text-lg leading-8 text-gray-300">{{ $dish->description }}</p>
+                            <div class="mt-10">
+                                <button class="rounded-full bg-indigo-600 px-3.5 py-2.5 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                                    data-bs-toggle="modal" data-bs-target="#restoreModal" data-route="dishes" data-id="{{ $dish->id }}">
+                                    Ripristina
+                                </button>
                             </div>
-                            <div class="text-end hidden md:inline lg:inline">
-                                Created: {{ $dish->created_at }} <br>
-                                Last edit: {{ $dish->updated_at }} <br>
-                                Deleted: {{ $dish->deleted_at }}
-                            </div>
+                        </div>
+                        <div class="justify-self-end">
+                            <img class="absolute right-0 top-0 object-cover w-[33rem] h-[31rem] rounded-r-3xl bg-white/5 ring-1 ring-white/10" src="{{ asset('storage/' . $dish->image) }}"
+                            alt="{{ $dish->name }}">
                         </div>
                     </div>
-                </li>
-            @empty
-                <h4 class="alert alert-danger mt-5 text-center">Trash is empty</h4>
-            @endforelse
-        </ul>
-        <footer class="text-center mb-5">
-            <a href="{{ route('admin.dishes.index') }}" class="btn button-secondary-db mx-2 mt-5">Go back to the dishes
-                list</a>
+                </div>
+        @empty
+            <h4 class="alert alert-danger mt-5 text-center">Trash is empty</h4>
+        @endforelse
+
+        <footer class="text-center mt-10 mb-5">
+            <a href="{{ route('admin.dishes.index') }}" class="mx-2 items-center justify-center rounded-full border border-transparent bg-indigo-600 px-4 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ">Go back to the dishes list</a>
         </footer>
     </div>
-    @section('scripts')
-        @vite('resources/js/restore-confirm.js')
-    @endsection
+
 @endsection
