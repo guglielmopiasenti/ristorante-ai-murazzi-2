@@ -26,9 +26,9 @@
     <div class="container mx-auto text-white">
         <h2 class="py-5 text-4xl">Elenco piatti</h2>
         <div class="py-5 flex flex-wrap gap-3">
-            <a class=" flex mx-1 items-center justify-center rounded-full border border-transparent bg-indigo-600 px-3 py-2 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            <a class=" flex mx-1 items-center justify-center rounded-full border border-transparent bg-indigo-600 px-3 py-2 text-base font-medium text-white hover:bg-indigo-700"
                 href="{{ route('admin.dishes.create') }}">Crea un nuovo piatto</a>
-            <a class="flex mx-1 items-center justify-center rounded-full border border-transparent bg-red-600 px-3 py-2 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+            <a class="flex mx-1 items-center justify-center rounded-full border border-transparent bg-red-600 px-3 py-2 text-base font-medium text-white hover:bg-red-700 focus:outline-none"
                 href="{{ route('admin.dishes.trash') }}">Vai al cestino <span
                     class="pl-2 text-sm">({{ $trash_count }})</span></a>
         </div>
@@ -69,13 +69,13 @@
                             <td>
                                 <div class="grid grid-cols-3 items-center">
                                     <div class="justify-self-end">
-                                        <a class="rounded-full border border-transparent bg-blue-600 px-3 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                                        <a class="rounded-full border border-transparent bg-blue-600 px-3 py-2 text-sm font-medium text-white hover:bg-blue-700"
                                             href="{{ route('admin.dishes.show', $dish->id) }}"><i
                                                 class="fas fa-eye me-2"></i><span
                                                 class="hidden lg:inline">Dettagli</span></a>
                                     </div>
                                     <div class="justify-self-center">
-                                        <a class="rounded-full border border-transparent bg-indigo-600 px-2 py-2 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                        <a class="rounded-full border border-transparent bg-indigo-600 px-2 py-2 text-sm font-medium text-white hover:bg-indigo-700"
                                             href="{{ route('admin.dishes.edit', $dish->id) }}"><i
                                                 class="fas fa-pen me-2"></i><span
                                                 class="hidden lg:inline">Modifica</span></a>
@@ -84,7 +84,7 @@
                                     <div x-data="{ open: false, dishId: null, route: 'dishes' }" class="justify-self-start">
                                         <button @click="open = true, dishId = {{ $dish->id }}" x-transition
                                             type="button"
-                                            class="rounded-full border border-transparent bg-red-600 px-2 py-2 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                                            class="rounded-full border border-transparent bg-red-600 px-2 py-2 text-sm font-medium text-white hover:bg-red-700">
                                             <i class="fa-solid fa-trash me-2"></i><span
                                                 class="hidden lg:inline">Elimina</span>
                                         </button>
