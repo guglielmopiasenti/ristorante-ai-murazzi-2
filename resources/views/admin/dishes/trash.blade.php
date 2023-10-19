@@ -22,11 +22,11 @@
                         <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
                             <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">{{ $dish->name }}</h2>
                             <p class="mt-6 text-lg leading-8 text-gray-300">{{ $dish->description }}</p>
-                            <div class="mt-10">
-                                <button class="rounded-full bg-indigo-600 px-3.5 py-2.5 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                                    data-bs-toggle="modal" data-bs-target="#restoreModal" data-route="dishes" data-id="{{ $dish->id }}">
+                            <div x-data="{ open: false, dishId:null}" class="mt-10">
+                                <button @click="open = true, dishId = {{ $dish->id }}" x-transition class="rounded-full bg-indigo-600 px-3.5 py-2.5 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
                                     Ripristina
                                 </button>
+                                @include('includes.restore-modal')
                             </div>
                         </div>
                         <div class="justify-self-end">
