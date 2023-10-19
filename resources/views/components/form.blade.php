@@ -27,7 +27,7 @@
 
     <div class="content">
         <div class="container mx-auto">
-            <div class="p-5">
+            <div class="p-5 w-9/12 mx-auto">
                 <form class="my-5" method="POST" enctype="multipart/form-data" novalidate
                     @if ($dish->exists) action="{{ route('admin.dishes.update', $dish->id) }}"
                     @else action="{{ route('admin.dishes.store') }}" @endif
@@ -40,11 +40,10 @@
                     <!-- Dish Name -->
                     <div class="mb-3">
                         <label for="dishName" class="block text-sm font-medium leading-6 text-gray-400">Nome Piatto <sup
-                                class="text-danger">*</sup></label>
+                                class="text-red-500">*</sup></label>
                         <input name="name" type="text"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 @if (!$errors->has('name')) border-green-300 @endif"
+                            class="block w-full rounded-lg py-1.5 text-gray-900 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 @error('name') border-red-500 @enderror"
                             id="dishName" value="{{ old('name', $dish->name) }}" required>
-                        <small id="dish-name-error" class="text-red-500"></small>
                         @error('name')
                             <div class="text-red-500 text-sm mt-2">
                                 {{ $message }}
@@ -71,22 +70,20 @@
                                 <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF</p>
                             </div>
                         </div>
+                        @error('image')
+                            <div class="text-red-500 text-sm mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
-                    <input type="hidden" name="current_image" value="{{ $dish->image }}">
-                    @error('image')
-                        <div class="text-red-500 text-sm mt-2">
-                            {{ $message }}
-                        </div>
-                    @enderror
 
                     <!-- Dish Price -->
                     <div class="my-3">
                         <label for="dishPrice" class="block text-sm font-medium leading-6 text-gray-400">Dish Price <sup
-                                class="text-danger">*</sup></label>
+                                class="text-red-500">*</sup></label>
                         <input name="price" type="number"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 @if (!$errors->has('price')) border-green-300 @endif"
+                            class="block w-full rounded-lg py-1.5 text-gray-900 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 @error('price') border-red-500 @enderror"
                             id="dishPrice" value="{{ old('price', $dish->price) }}" required>
-                        <small id="dish-price-error" class="text-danger"></small>
                         @error('price')
                             <div class="text-red-500 text-sm mt-2">
                                 {{ $message }}
@@ -97,11 +94,10 @@
                     <!-- Dish Ingredients -->
                     <div class="mb-3">
                         <label for="dishIngredients" class="block text-sm font-medium leading-6 text-gray-400">Dish
-                            Ingredients <sup class="text-danger">*</sup></label>
+                            Ingredients <sup class="text-red-500">*</sup></label>
                         <textarea name="ingredients"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 @if (!$errors->has('ingredients')) border-green-300 @endif"
+                            class="block w-full rounded-lg border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 @error('ingredients') border-red-500 @enderror"
                             id="dishIngredients" required>{{ old('ingredients', $dish->ingredients) }}</textarea>
-                        <small id="dish-ingredients-error" class="text-danger"></small>
                         @error('ingredients')
                             <div class="text-red-500 text-sm mt-2">
                                 {{ $message }}
@@ -114,7 +110,7 @@
                         <label for "dishDescription" class="block text-sm font-medium leading-6 text-gray-400">Dish
                             Description</label>
                         <textarea name="description"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 @if (!$errors->has('description')) border-green-300 @endif"
+                            class="block w-full rounded-lg border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 @error('description') border-red-500 @enderror"
                             id="dishDescription">{{ old('description', $dish->description) }}</textarea>
                         @error('description')
                             <div class="text-red-500 text-sm mt-2">

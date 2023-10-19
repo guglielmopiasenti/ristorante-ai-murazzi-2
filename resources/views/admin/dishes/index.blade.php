@@ -30,7 +30,7 @@
                 href="{{ route('admin.dishes.create') }}">Crea un nuovo piatto</a>
             <a class="flex mx-1 items-center justify-center rounded-full border border-transparent bg-red-600 px-3 py-2 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
                 href="{{ route('admin.dishes.trash') }}">Vai al cestino <span
-                    class="text-sm">({{ $trash_count }})</span></a>
+                    class="pl-2 text-sm">({{ $trash_count }})</span></a>
         </div>
 
         <div class="overflow-x-auto">
