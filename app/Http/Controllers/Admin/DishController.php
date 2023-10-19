@@ -157,7 +157,7 @@ class DishController extends Controller
         $dish = Dish::onlyTrashed()->findOrFail($id);
         $dish->forceDelete();
 
-        return redirect()->route('admin.dishes.trash');
+        return redirect()->route('admin.dishes.trash')->with('toast-message', 'Piatto eliminato definitivamante con successo');
     }
 
     public function restore(string $id)
