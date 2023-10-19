@@ -31,18 +31,19 @@
                         <div x-data="{ open: false, dishId: null, route: 'dishes' }" class="justify-self-start">
                             <button @click="open = true, dishId = {{ $dish->id }}" type="button"
                                 class="rounded-full border border-transparent bg-red-600 px-4 py-3 text-base text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                                <i class="fa-solid fa-trash me-2"></i><span
-                                    class="hidden lg:inline">Elimina</span>
+                                <i class="fa-solid fa-trash me-2"></i><span class="hidden lg:inline">Elimina</span>
                             </button>
-                            @include('includes.delete-modal')
+                            <template x-if="open" x-cloak>
+                                @include('includes.delete-modal')
+                            </template>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="w-96 justify-self-end">
-              <img class=" aspect-square object-cover rounded mb-3" src="{{ asset('storage/' . $dish->image) }}"
-                  alt="{{ $dish->name }}">
-          </div>
+                <img class=" aspect-square object-cover rounded mb-3" src="{{ asset('storage/' . $dish->image) }}"
+                    alt="{{ $dish->name }}">
+            </div>
         </div>
     </div>
 @endsection
