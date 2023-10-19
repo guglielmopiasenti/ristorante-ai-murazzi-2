@@ -82,7 +82,7 @@
                                     </div>
 
                                     <div x-data="{ open: false, dishId: null, route: 'dishes' }" class="justify-self-start">
-                                        <button @click="open = true, dishId = {{ $dish->id }}" type="button"
+                                        <button @click="open = true, dishId = {{ $dish->id }}" x-transition type="button"
                                             class="rounded-full border border-transparent bg-red-600 px-2 py-2 text-sm text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                                             <i class="fa-solid fa-trash me-2"></i><span
                                                 class="hidden lg:inline">Elimina</span>
