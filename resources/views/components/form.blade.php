@@ -3,7 +3,7 @@
 @section('content')
     <div>
         @if ($dish->exists)
-            <div class="bg-gray-900 lg:py-20 sm:py-20">
+            <div class="bg-gray-950 lg:py-20 sm:py-20">
                 <div class="mx-auto max-w-7xl px-6 lg:px-8">
                     <div class="mx-auto max-w-2xl lg:text-center">
                         <h2 class="text-base font-semibold leading-7 text-indigo-600">Modifica velocemente un piatto</h2>
@@ -13,7 +13,7 @@
                 </div>
             </div>
         @else
-            <div class="bg-gray-900 lg:py-20 sm:py-20">
+            <div class="bg-gray-950 lg:py-20 sm:py-20 shadow-md">
                 <div class="mx-auto max-w-7xl px-6 lg:px-8">
                     <div class="mx-auto max-w-2xl lg:text-center">
                         <h2 class="text-base font-semibold leading-7 text-indigo-600">Aggiungi velocemente un piatto</h2>
@@ -26,8 +26,8 @@
     </div>
 
     <div class="content">
-        <div class="container mx-auto">
-            <div class="p-5 w-9/12 mx-auto">
+        <div class="container py-10 mx-auto">
+            <div class="container p-5 w-9/12 mx-auto">
                 <form class="my-5" method="POST" enctype="multipart/form-data" novalidate
                     @if ($dish->exists) action="{{ route('admin.dishes.update', $dish->id) }}"
                     @else action="{{ route('admin.dishes.store') }}" @endif
