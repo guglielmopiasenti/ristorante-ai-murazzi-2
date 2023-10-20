@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Menu')
+@section('title', 'Foto')
 @section('content')
     <div x-data="{ openDeleteModal: false, openCreatePlate: false, pictureId: null }">
         <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">

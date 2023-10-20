@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Crea un Piatto')
 @section('content')
     <div class="bg-light rounded-3 p-5 mb-4">
         <div class="container py-5">
