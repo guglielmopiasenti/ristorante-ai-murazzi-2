@@ -2,6 +2,7 @@
 
 return [
     [
+        'category_id' => 1,
         "name" => "Pizza Margherita",
         "price" => 10.99,
         "image" => 'plate_images/margherita.webp',
@@ -10,6 +11,7 @@ return [
         "is_visible" => true
     ],
     [
+        'category_id' => 1,
         "name" => "Pasta alla Carbonara",
         "price" => 12.99,
         "image" => "plate_images/carbonara.webp",
@@ -18,6 +20,7 @@ return [
         "is_visible" => true
     ],
     [
+        'category_id' => 1,
         "name" => "Sushi Misto",
         "price" => 18.99,
         "image" => 'plate_images/plate-2.jpg',
@@ -26,6 +29,7 @@ return [
         "is_visible" => true
     ],
     [
+        'category_id' => 1,
         "name" => "Bistecca alla Griglia",
         "price" => 24.99,
         "image" => "plate_images/grill1.jpeg",
@@ -34,6 +38,7 @@ return [
         "is_visible" => true
     ],
     [
+        'category_id' => 1,
         "name" => "Insalata Caprese",
         "price" => 8.99,
         "image" => 'plate_images/caprese.webp',
@@ -42,6 +47,7 @@ return [
         "is_visible" => true
     ],
     [
+        'category_id' => 1,
         "name" => "Lasagna alla Bolognese",
         "price" => 14.99,
         "image" => "plate_images/lasagna.webp",
@@ -50,6 +56,7 @@ return [
         "is_visible" => true
     ],
     [
+        'category_id' => 1,
         "name" => "Sushi Vegano",
         "price" => 16.99,
         "image" => 'plate_images/vsushi.jpeg',
@@ -58,6 +65,7 @@ return [
         "is_visible" => true
     ],
     [
+        'category_id' => 1,
         "name" => "Tagliata di Manzo",
         "price" => 26.99,
         "image" => "plate_images/tagliata.avif",
@@ -66,6 +74,7 @@ return [
         "is_visible" => true
     ],
     [
+        'category_id' => 1,
         "name" => "Insalata di Quinoa",
         "price" => 9.99,
         "image" => 'plate_images/quinoa.jpeg',
@@ -74,6 +83,7 @@ return [
         "is_visible" => true
     ],
     [
+        'category_id' => 1,
         "name" => "Tiramisù",
         "price" => 6.99,
         "image" => "plate_images/tiramisu.webp",
@@ -82,6 +92,8 @@ return [
         "is_visible" => true
     ],
     [
+
+        'category_id' => 1,
         "name" => "Pizza ai Frutti di Mare",
         "price" => 18.99,
         "image" => 'plate_images/plate-1.jpg',
@@ -90,6 +102,7 @@ return [
         "is_visible" => true
     ],
     [
+        'category_id' => 1,
         "name" => "Tacos al Chili",
         "price" => 14.00,
         "image" => 'plate_images/plate-4.jpg',
@@ -98,6 +111,7 @@ return [
         "is_visible" => true
     ],
     [
+        'category_id' => 1,
         "name" => "Double Cheeseburger",
         "price" => 7.99,
         "image" => 'plate_images/plate-5.jpg',
@@ -106,6 +120,7 @@ return [
         "is_visible" => true
     ],
     [
+        'category_id' => 1,
         "name" => "Pane all'Aglio",
         "price" => 5.99,
         "image" => "plate_images/garlic_bread.jpeg",
@@ -114,6 +129,7 @@ return [
         "is_visible" => true
     ],
     [
+        'category_id' => 1,
         "name" => "Gamberetti alla Tempura",
         "price" => 14.99,
         "image" => "plate_images/tempura_shrimp.jpeg",
@@ -122,6 +138,7 @@ return [
         "is_visible" => true
     ],
     [
+        'category_id' => 1,
         "name" => "Risotto ai Funghi",
         "price" => 13.99,
         "image" => "plate_images/mushroom_risotto.jpeg",
@@ -130,6 +147,7 @@ return [
         "is_visible" => true
     ],
     [
+        'category_id' => 1,
         "name" => "Insalata di Tonno",
         "price" => 9.99,
         "image" => "plate_images/tuna_salad.jpeg",
@@ -138,6 +156,7 @@ return [
         "is_visible" => true
     ],
     [
+        'category_id' => 1,
         "name" => "Fajitas di Pollo",
         "price" => 16.99,
         "image" => "plate_images/chicken_fajitas.jpeg",
@@ -146,6 +165,7 @@ return [
         "is_visible" => true
     ],
     [
+        'category_id' => 1,
         "name" => "Panino Caprese",
         "price" => 10.99,
         "image" => "plate_images/caprese_panini.jpeg",
@@ -154,6 +174,7 @@ return [
         "is_visible" => true
     ],
     [
+        'category_id' => 1,
         "name" => "Roll di Avocado",
         "price" => 8.99,
         "image" => "plate_images/avocado_roll.jpeg",
@@ -162,6 +183,7 @@ return [
         "is_visible" => true
     ],
     [
+        'category_id' => 1,
         "name" => "Enchiladas Vegetariane",
         "price" => 12.99,
         "image" => "plate_images/vegetarian_enchiladas.jpeg",
@@ -170,6 +192,7 @@ return [
         "is_visible" => true
     ],
     [
+        'category_id' => 1,
         "name" => "Fonduta al Cioccolato",
         "price" => 8.99,
         "image" => "plate_images/chocolate_fondue.jpeg",
@@ -178,6 +201,7 @@ return [
         "is_visible" => true
     ],
     [
+        'category_id' => 1,
         "name" => "Pollo Alfredo",
         "price" => 15.99,
         "image" => "plate_images/chicken_alfredo.jpeg",
