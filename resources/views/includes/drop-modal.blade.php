@@ -36,7 +36,7 @@
                             class="inline-flex w-full justify-center rounded-full bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">Elimina</button>
                     </form>
 
-                    <button x-on:click="open = false" type="button"
+                    <button x-on:click="openDeleteModal = false" type="button"
                         class="mt-3 inline-flex w-full justify-center rounded-full bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Annulla</button>
                 </div>
             </div>
