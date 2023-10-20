@@ -19,6 +19,7 @@ class DishSeeder extends Seeder
 
         foreach ($dishes as $dish) {
             $food = new Dish();
+            $food->category_id = $dish['category_id'];
             $food->name = $dish['name'];
             $food->price = $dish['price'];
             $food->image = $dish['image'];
