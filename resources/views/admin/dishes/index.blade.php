@@ -40,6 +40,7 @@
                     <tr>
                         <th scope="col">Id</th>
                         <th scope="col">Nome</th>
+                        <th scope="col">Categoria</th>
                         <th scope="col">Prezzo</th>
                         <th scope="col">Ha immagine?</th>
                         <th scope="col">È visibile?</th>
@@ -51,6 +52,7 @@
                         <tr>
                             <td>{{ $dish->id }}</td>
                             <td>{{ $dish->name }}</td>
+                            <td>{{ $dish->category->name }}</td>
                             <td>{{ $dish->price }}€</td>
                             <td>
                                 @if ($dish->image != null && $dish->image != 'placeholder.jpg')

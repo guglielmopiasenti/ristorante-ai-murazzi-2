@@ -20,6 +20,7 @@
                 <h2 class="text-4xl font-bold tracking-tight text-white sm:text-6xl pb-10">{{ $dish->name }}</h2>
                 <h5 class="text-xl my-6 text-white">Prezzo: {{ $dish->price }}€</h5>
                 <p class="mt-6 text-lg leading-8 text-gray-300"><strong>Ingredienti: </strong>{{ $dish->ingredients }}</p>
+                <p class="mt-6 text-lg leading-8 text-gray-300"><strong>Categoria: </strong>{{ $dish->category->name }}</p>
                 <p class="mt-6 text-lg leading-8 text-gray-300">{{ $dish->description }}</p>
                 <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
                     <div
