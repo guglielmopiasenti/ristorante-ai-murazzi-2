@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\DishController;
+use App\Http\Controllers\Admin\PictureController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -45,6 +46,10 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth'])->group(function ()
     Route::delete('/dishes/trash/drop', [DishController::class, 'dropAll'])->name('dishes.dropAll');
     Route::patch('/dishes/{id}/restore', [DishController::class, 'restore'])->name('dishes.restore');
     Route::resource('/dishes', DishController::class);
+
+    // routes for images
+    Route::resource('/pictures', PictureController::class);
+    Route::delete('/pictures/trash/{id}/drop', [PictureController::class, 'drop'])->name('pictures.drop');
 });
 
 Route::middleware('auth')->group(function () {
@@ -53,4 +58,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
