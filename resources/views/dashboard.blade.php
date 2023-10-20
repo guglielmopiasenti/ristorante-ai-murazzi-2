@@ -26,7 +26,7 @@
                     class="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
                     <a href="{{ route('admin.dishes.index') }}">
                         Sezione Menu <span aria-hidden="true">&rarr;</span></a>
-                    <a href="#">Sezione Foto <span aria-hidden="true">&rarr;</span></a>
+                    <a href="{{ route('admin.pictures.index') }}">Sezione Foto <span aria-hidden="true">&rarr;</span></a>
                 </div>
             </div>
         </div>
