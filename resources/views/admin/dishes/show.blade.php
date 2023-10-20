@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Plate')
+@section('title', 'Piatto')
 @section('content')
 
     <div class="relative isolate overflow-hidden bg-gray-900 py-20">
@@ -25,7 +25,7 @@
                     <div
                         class="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
                         <a href="{{ route('admin.dishes.edit', $dish->id) }}"
-                            class="bg-blue-600 text-white py-2 px-4 rounded-full mr-4">
+                            class="bg-blue-600 text-white py-2 px-4 rounded-full mr-4 flex items-center gap-2">
                             <i class="fa-solid fa-pen"></i> Modifica
                         </a>
                         <div x-data="{ open: false, dishId: null, route: 'dishes' }" class="justify-self-start">
