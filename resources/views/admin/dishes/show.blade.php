@@ -30,7 +30,7 @@
                         </a>
                         <div x-data="{ open: false, dishId: null, route: 'dishes' }" class="justify-self-start">
                             <button @click="open = true, dishId = {{ $dish->id }}" type="button"
-                                class="rounded-full border border-transparent bg-red-600 px-4 py-3 text-base text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                                class="rounded-full border border-transparent bg-red-600 px-4 py-3 text-base text-white hover:bg-red-700">
                                 <i class="fa-solid fa-trash me-2"></i><span class="hidden lg:inline">Elimina</span>
                             </button>
                             <template x-if="open" x-cloak>
