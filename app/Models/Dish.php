@@ -10,5 +10,11 @@ class Dish extends Model
 {
     use SoftDeletes;
     use HasFactory;
-    protected $fillable = ['name', 'image', 'price', 'ingredients', 'description', 'is_visible'];
+    protected $fillable = ['name', 'image', 'price', 'category_id', 'ingredients', 'description', 'is_visible'];
+
+    public function category()
+    {
+
+        return $this->belongsTo(Category::class);
+    }
 }
