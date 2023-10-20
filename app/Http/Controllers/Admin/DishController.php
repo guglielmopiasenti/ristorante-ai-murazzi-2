@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Dish;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Support\Facades\Storage;
 
 class DishController extends Controller
@@ -27,8 +28,9 @@ class DishController extends Controller
      */
     public function create()
     {
+        $categories = Category::all();
 
-        return view('admin.dishes.create');
+        return view('admin.dishes.create', compact('categories'));
     }
 
     /**
@@ -41,6 +43,7 @@ class DishController extends Controller
                 'name' => 'required|string',
                 'price' => 'required|numeric',
                 'image' => 'nullable|file',
+                'category' => 'required|exists:categories,id',
                 'ingredients' => 'required|string',
                 'description' => 'nullable|string',
             ],
@@ -50,6 +53,7 @@ class DishController extends Controller
                 'price.required' => 'Il campo Prezzo è obbligatorio',
                 'price.numeric' => 'Il campo Prezzo deve essere un numero',
                 'image.file' => 'Immagine non valida',
+                'category.required' => 'Il campo Categoria è obbligatorio',
                 'ingredients.required' => 'Il campo Ingredienti è obbligatorio',
                 'ingredients.string' => 'Il campo Ingredienti deve essere una stringa',
                 'description.string' => 'Il campo Descrizione deve essere una stringa',
@@ -67,6 +71,10 @@ class DishController extends Controller
 
         $dish = new Dish();
         $dish->fill($data);
+        if ($dish->is_visible != 1) {
+            $dish->is_visible = 0;
+        };
+        $dish->category_id = $data['category'];
         $dish->save();
 
         return redirect()->route('admin.dishes.show', $dish->id)->with('toast-message', 'Piatto creato con successo');
@@ -85,7 +93,8 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
-        return view('admin.dishes.edit', compact('dish'));
+        $categories = Category::all();
+        return view('admin.dishes.edit', compact('dish', 'categories'));
     }
 
     /**
@@ -93,12 +102,14 @@ class DishController extends Controller
      */
     public function update(Request $request, string $id)
     {
+
         $dish = Dish::findOrFail($id);
 
         $request->validate([
             'name' => 'required|string',
             'price' => 'required|numeric',
             'image' => 'nullable|file',
+            'category' => 'required|exists:categories,id',
             'ingredients' => 'required|string',
             'description' => 'nullable|string',
         ], [
@@ -125,7 +136,7 @@ class DishController extends Controller
         if (isset($dish->is_visible) || $dish->is_visible != '1') {
             $dish->is_visible = 0;
         };
-
+        $dish->category_id = $data['category'];
 
         $dish->update($data);
 
