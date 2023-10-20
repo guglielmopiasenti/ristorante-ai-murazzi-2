@@ -28,11 +28,11 @@ class PictureController extends Controller
 
         $data = $request->all();
 
-        if (array_key_exists('filename', $data)) {
-            $image_url = Storage::disk('public')->put('pictures', $data['filename']);
+        if ($request->hasFile('filename')) {
+            $image_url = Storage::disk('public')->put('pictures', $request->file('filename'));
             $data['filename'] = $image_url;
         } else {
-            $data['image'] = 'placeholder.jpg';
+            $data['filename'] = 'placeholder.jpg';
         }
 
         $picture = new Picture();
