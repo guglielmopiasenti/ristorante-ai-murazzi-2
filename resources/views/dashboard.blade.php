@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Menu')
+@section('title', 'Dashboard')
 @section('content')
 
     <div class="relative isolate overflow-hidden bg-gray-900 py-24">
