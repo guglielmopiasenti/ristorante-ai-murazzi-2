@@ -57,7 +57,12 @@
                 </div>
             </div>
         @empty
-            <h4 class="alert alert-danger mt-5 text-center">Trash is empty</h4>
+            <div class="text-center mt-10">
+                <i class="fa-solid fa-trash fa-2xl text-white mb-12"></i>
+                <h4 class="text-3xl text-white mb-5">Il Cestino è vuoto</h4>
+                <p class="text-lg text-gray-300 mb-10">
+                    Non hai elementi nel cestino. Qui è tutto pulito!</p>
+            </div>
         @endforelse
 
         <footer class="text-center mt-10 mb-5">
