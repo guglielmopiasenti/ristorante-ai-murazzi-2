@@ -125,19 +125,21 @@ class DishController extends Controller
 
         $data = $request->all();
 
-        $currentImage = $request->input('current_image');
-
-        if (array_key_exists('image', $data)) {
+        // Handling the image
+        if ($request->hasFile('image')) {
             $image_url = Storage::disk('public')->put('plate_images', $data['image']);
             $data['image'] = $image_url;
         } else {
-            $data['image'] = $currentImage;
+            unset($data['image']); // Remove the 'image' key if no new image is uploaded
         }
-        if (isset($dish->is_visible) || $dish->is_visible != '1') {
-            $dish->is_visible = 0;
-        };
+
+        // Handling the visibility
+        $data['is_visible'] = $request->has('is_visible') ? 1 : 0;
+
+        // Handling the category
         $dish->category_id = $data['category'];
 
+        // Updating the dish
         $dish->update($data);
 
         return redirect()->route('admin.dishes.show', $dish->id)->with('toast-message', 'Piatto aggiornato con successo');
