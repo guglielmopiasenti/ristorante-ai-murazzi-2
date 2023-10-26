@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\DishController;
+use App\Http\Controllers\Api\PictureController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// routes for dishes
+
+Route::apiResource('/dishes', DishController::class);
+
+// routes for pictures
+
+Route::apiResource('/pictures', PictureController::class);
