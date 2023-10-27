@@ -17,4 +17,26 @@ class Dish extends Model
 
         return $this->belongsTo(Category::class);
     }
+
+    public function getDishesByCategory()
+    {
+        $dishes = Dish::whereNull('deleted_at')
+            ->where('is_visible', true)
+            ->with('category') // Eager load the category
+            ->get();
+
+        // Organize dishes by category name
+        $dishesByCategory = [];
+        foreach ($dishes as $dish) {
+            $categoryName = $dish->category->name; // Assuming the category has a name field
+
+            if (!isset($dishesByCategory[$categoryName])) {
+                $dishesByCategory[$categoryName] = [];
+            }
+
+            $dishesByCategory[$categoryName][] = $dish;
+        }
+
+        return response()->json($dishesByCategory);
+    }
 }

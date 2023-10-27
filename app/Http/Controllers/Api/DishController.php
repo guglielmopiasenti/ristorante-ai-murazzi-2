@@ -11,8 +11,14 @@ class DishController extends Controller
 {
   public function index()
   {
-    $dishes = Dish::whereNull('deleted_at')->get();
+    $dishes = Dish::whereNull('deleted_at')
+      ->where('is_visible', true)
+      ->with('category')
+      ->get();
 
+    foreach ($dishes as $dish) {
+      $dish->image = url('storage/' . $dish->image);
+    }
     return response()->json(compact('dishes'));
   }
 
