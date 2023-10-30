@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\DishController;
 use App\Http\Controllers\Api\PictureController;
 use Illuminate\Http\Request;
@@ -27,3 +28,8 @@ Route::apiResource('/dishes', DishController::class);
 // routes for pictures
 
 Route::apiResource('/pictures', PictureController::class);
+
+
+// routes fo email
+
+Route::post('/contact-message', [ContactController::class, 'message']);
