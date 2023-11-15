@@ -20,9 +20,9 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('password'),
             ],
             [
-                'name' => 'Rizwan',
-                'email' => 'john.doe@example.com',
-                'password' => bcrypt('password'),
+                'name' => 'AiMurazzi',
+                'email' => 'ristoranteaimurazzi@gmail.com',
+                'password' => bcrypt('AiMurazzi2023'),
             ],
         ];
 
